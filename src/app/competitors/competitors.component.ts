@@ -32,14 +32,10 @@ export class CompetitorsComponent implements OnInit {
 
     this._service.getPokemonByNumber(this.myRandomPokemon1).subscribe(result => {
       this.pokemon1 = result;
-      console.log(result.name); //wegdoen na debuggen
-      console.log(this.pokemon1.name); //wegdoen na debuggen
    });
 
     this._service.getPokemonByNumber(this.myRandomPokemon2).subscribe(result => {
       this.pokemon2 = result;
-      console.log(result.name); //wegdoen na debuggen
-      console.log(this.pokemon2.name); //wegdoen na debuggen
     });
   }
 

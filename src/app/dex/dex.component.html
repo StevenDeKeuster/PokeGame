@@ -1,28 +1,55 @@
-<div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
+<div class="box">
+    <article class="media">
       <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        <figure class="image is-128x128">
+          <img src="{{pokemon.sprites.front_default}}" alt="Image">
         </figure>
       </div>
       <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
-      </div>
-    </div>
+        <div class="content">
+          <h3 class="title is-3">Not sure? Search for info here!</h3>
+          <br>
+          <div class="field">
+              <div class="control">
+                <input class="input is-link" type="text" placeholder="Name">
+                <a class="button is-link is-outlined">Search</a>
+              </div>
+            </div>
+          <p>
 
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-    </div>
+            HP {{pokemon.stats[5].base_stat}}
+            <progress class="progress is-primary" value="{{pokemon.stats[5].base_stat}}" max="250"></progress>
+            Attack {{pokemon.stats[4].base_stat}}
+            <progress class="progress is-link" value="{{pokemon.stats[4].base_stat}}" max="180"></progress>
+            Defence {{pokemon.stats[3].base_stat}}
+            <progress class="progress is-info" value="{{pokemon.stats[3].base_stat}}" max="180"></progress>
+            Special Attack {{pokemon.stats[2].base_stat}}
+            <progress class="progress is-success" value="{{pokemon.stats[2].base_stat}}" max="180"></progress>
+            Special Defence {{pokemon.stats[1].base_stat}}
+            <progress class="progress is-warning" value="{{pokemon.stats[1].base_stat}}" max="180"></progress>
+            Speed {{pokemon.stats[0].base_stat}}
+            <progress class="progress is-danger" value="{{pokemon.stats[0].base_stat}}" max="180"></progress>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item" aria-label="reply">
+              <span class="icon is-small">
+                <i class="fas fa-reply" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="retweet">
+              <span class="icon is-small">
+                <i class="fas fa-retweet" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="like">
+              <span class="icon is-small">
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </article>
   </div>
-</div>

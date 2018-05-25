@@ -8,11 +8,11 @@ import "rxjs/add/observable/of";
 export class PokeapiService{
     constructor(private _http:HttpClient){}
 
-    getPokemonByNumber(myNumber : Number):Observable<IPokeRoot>{
+    getPokemonByNumber(myNumber : number):Observable<IPokeRoot>{
         return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myNumber + "/");
     }
 
-    getPokemonByName(myName : Number):Observable<IPokeRoot>{
+    getPokemonByName(myName : string):Observable<IPokeRoot>{
         return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myName + "/");
     }
     

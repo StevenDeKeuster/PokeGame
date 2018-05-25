@@ -1,23 +1,26 @@
 <div class="card">
   <div class="card-content">
     <p class="title">
-      Battle Gamble! 
+      Battle Gamble!
     </p>
     <p class="subtitle">
       Which Pokémon will win the battle?
     </p>
   </div>
   <footer class="card-footer">
-    <div class="card-footer-item" (click)="get2pokemon()">
+    <div class="card-footer-item">
       <img src="{{pokemon1.sprites.front_default}}" alt="{{pokemon1.name}}">
-      <p class="pokemonName">{{pokemon1.name}}</p>
       <p>level: {{myRandomLevel1}}</p>
+      <a class="button is-link is-outlined" (click)="get2pokemon()">
+        <p class="pokemonName">{{pokemon1.name}}</p>
+      </a>
     </div>
-    <div class="card-footer-item" (click)="get2pokemon()">
-        <img src="{{pokemon2.sprites.front_default}}" alt="{{pokemon2.name}}">
+    <div class="card-footer-item">
+      <img src="{{pokemon2.sprites.front_default}}" alt="{{pokemon2.name}}">
+      <p>level: {{myRandomLevel2}}</p>
+      <a class="button is-link is-outlined" (click)="get2pokemon()">
         <p class="pokemonName">{{pokemon2.name}}</p>
-        <p>level: {{myRandomLevel2}}</p>
+      </a>
     </div>
-
   </footer>
 </div>
