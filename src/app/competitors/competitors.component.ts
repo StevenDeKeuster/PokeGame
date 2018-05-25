@@ -15,6 +15,7 @@ export class CompetitorsComponent implements OnInit {
   myRandomPokemon2:number;
   myRandomLevel1:number;
   myRandomLevel2:number;
+  
   constructor(private _service: PokeapiService) { }
 
   ngOnInit() {
@@ -25,7 +26,7 @@ export class CompetitorsComponent implements OnInit {
     this.myRandomPokemon1 = _.random(1,152);
     this.myRandomPokemon2 = _.random(1,152);
 
-    this.myRandomLevel1 = _.random(1,100);
+    this.myRandomLevel1 = _.random(21,81);
     this.myRandomLevel2 = _.random(this.myRandomLevel1-20,this.myRandomLevel1+20);
     
 
