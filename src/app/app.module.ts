@@ -8,6 +8,9 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { GameComponent } from './game/game.component';
 import { DexComponent } from './dex/dex.component';
+import { CompetitorsComponent } from './competitors/competitors.component';
+
+import { PokeapiService } from './services/pokeapi.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { DexComponent } from './dex/dex.component';
     NavComponent,
     HomeComponent,
     GameComponent,
-    DexComponent
+    DexComponent,
+    CompetitorsComponent
   ],
   imports: [
     HttpClientModule,
@@ -27,7 +31,9 @@ import { DexComponent } from './dex/dex.component';
     ], {useHash:true})
 
   ],
-  providers: [],
+  providers: [
+    PokeapiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
