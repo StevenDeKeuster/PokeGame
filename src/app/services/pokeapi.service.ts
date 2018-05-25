@@ -9,11 +9,15 @@ export class PokeapiService{
     constructor(private _http:HttpClient){}
 
     getPokemon1(myRandom : Number):Observable<IPokeRoot>{
-        return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myRandom);
+        return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myRandom + "/");
     }
-    
+
     getPokemon2(myRandom : Number):Observable<IPokeRoot>{
-        return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myRandom);
+        return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myRandom + "/");
+    }
+
+    getPokemonForDex(myName : Number):Observable<IPokeRoot>{
+        return this._http.get<IPokeRoot>("https://www.pokeapi.co/api/v2/pokemon/" + myName + "/");
     }
     
 
@@ -40,7 +44,7 @@ export class PokeapiService{
     }
 
     export interface IStat {
-        stat: Stat2;
+        stat: IStat2;
         effort: number;
         base_stat: number;
     }
@@ -56,9 +60,9 @@ export class PokeapiService{
     }
 
     export interface IVersionGroupDetail {
-        move_learn_method: MoveLearnMethod;
+        move_learn_method: IMoveLearnMethod;
         level_learned_at: number;
-        version_group: VersionGroup;
+        version_group: IVersionGroup;
     }
 
     export interface IMove2 {
@@ -67,8 +71,8 @@ export class PokeapiService{
     }
 
     export interface IMove {
-        version_group_details: VersionGroupDetail[];
-        move: Move2;
+        version_group_details: IVersionGroupDetail[];
+        move: IMove2;
     }
 
     export interface ISprites {
@@ -93,13 +97,13 @@ export class PokeapiService{
     }
 
     export interface IVersionDetail {
-        version: Version;
+        version: IVersion;
         rarity: number;
     }
 
     export interface IHeldItem {
-        item: Item;
-        version_details: VersionDetail[];
+        item: IItem;
+        version_details: IVersionDetail[];
     }
 
     export interface ISpecies {
@@ -113,7 +117,7 @@ export class PokeapiService{
     }
 
     export interface IGameIndice {
-        version: Version2;
+        version: IVersion2;
         game_index: number;
     }
 
@@ -124,27 +128,27 @@ export class PokeapiService{
 
     export interface IType {
         slot: number;
-        type: Type2;
+        type: IType2;
     }
 
     export interface IPokeRoot {
-        forms: Form[];
-        abilities: Ability[];
-        stats: Stat[];
+        forms: IForm[];
+        abilities: IAbility[];
+        stats: IStat[];
         name: string;
         weight: number;
-        moves: Move[];
-        sprites: Sprites;
-        held_items: HeldItem[];
+        moves: IMove[];
+        sprites: ISprites;
+        held_items: IHeldItem[];
         location_area_encounters: string;
         height: number;
         is_default: boolean;
-        species: Species;
+        species: ISpecies;
         id: number;
         order: number;
-        game_indices: GameIndice[];
+        game_indices: IGameIndice[];
         base_experience: number;
-        types: Type[];
+        types: IType[];
     }
 
 
