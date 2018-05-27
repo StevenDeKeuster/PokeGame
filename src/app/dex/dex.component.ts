@@ -17,12 +17,12 @@ export class DexComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPokemon()
+    this.getPokemon(this.pokemonName)
   }
 
   
-  getPokemon(){
-    this._service.getPokemonByName(this.pokemonName).subscribe(result => {
+  getPokemon(name){
+    this._service.getPokemonByName(name).subscribe(result => {
       this.pokemon = result;
    });
   }
