@@ -2,7 +2,7 @@
     <article class="media">
       <div class="media-left">
         <figure class="image is-128x128">
-          <img src="{{pokemon.sprites.front_default}}" alt="Image">
+          <img src="{{pokemon.sprites.front_default}}" alt="No match found">
         </figure>
       </div>
       <div class="media-content">
@@ -18,11 +18,11 @@
           <p>
 
             HP {{pokemon.stats[5].base_stat}}
-            <progress class="progress is-primary" value="{{pokemon.stats[5].base_stat}}" max="250"></progress>
+            <progress class="progress is-link" value="{{pokemon.stats[5].base_stat}}" max="180"></progress>
             Attack {{pokemon.stats[4].base_stat}}
-            <progress class="progress is-link" value="{{pokemon.stats[4].base_stat}}" max="180"></progress>
+            <progress class="progress is-info" value="{{pokemon.stats[4].base_stat}}" max="180"></progress>
             Defence {{pokemon.stats[3].base_stat}}
-            <progress class="progress is-info" value="{{pokemon.stats[3].base_stat}}" max="180"></progress>
+            <progress class="progress is-primary" value="{{pokemon.stats[3].base_stat}}" max="180"></progress>
             Special Attack {{pokemon.stats[2].base_stat}}
             <progress class="progress is-success" value="{{pokemon.stats[2].base_stat}}" max="180"></progress>
             Special Defence {{pokemon.stats[1].base_stat}}

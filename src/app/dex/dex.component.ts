@@ -13,7 +13,7 @@ export class DexComponent implements OnInit {
   pokemon: IPokeRoot;
 
   constructor(private _service: PokeapiService) {
-    this.pokemonName = "mewtwo"
+    this.pokemonName = "pikachu"
   }
 
   ngOnInit() {
