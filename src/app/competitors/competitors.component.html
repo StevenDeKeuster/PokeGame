@@ -14,21 +14,25 @@
         </p>
   </div>
   <footer class="card-footer">
+
+
     <div class="card-footer-item">
       <img src="{{pokemons[0].sprites.front_default}}" alt="{{pokemons[0].name}}">
       <p>level: {{RandomLevels[0]}}</p>
       <a class="button is-link is-outlined" (click)="guess(0, 1)">
         <p class="pokemonName">{{pokemons[0].name}}</p>
-        <p class="pokemonName">{{totalPowers[0]}}</p>
       </a>
     </div>
+
+
     <div class="card-footer-item">
       <img src="{{pokemons[1].sprites.front_default}}" alt="{{pokemons[1].name}}">
       <p>level: {{RandomLevels[1]}}</p>
       <a class="button is-link is-outlined" (click)="guess(1, 0)">
         <p class="pokemonName">{{pokemons[1].name}}</p>
-        <p class="pokemonName">{{totalPowers[1]}}</p>
       </a>
     </div>
+
+
   </footer>
 </div>

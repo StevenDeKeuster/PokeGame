@@ -38,15 +38,16 @@ export class CompetitorsComponent implements OnInit {
 
       this._service.getPokemonByNumber(this.randomNumbers[i]).subscribe(result => {
         this.pokemons[i] = result;
+        this.totalBasePowers[i] = 0;
+
+        for (let j = 0; j < 6; j++) {
+          this.totalBasePowers[i] += this.pokemons[i].stats[j].base_stat;
+        }
+
+        this.totalPowers[i] = this.totalBasePowers[i] * this.RandomLevels[i];
       });
 
-      this.totalBasePowers[i] = 0;
 
-      for (let j = 0; j < 6; j++) {
-        this.totalBasePowers[i] += this.pokemons[i].stats[j].base_stat;
-      }
-
-      this.totalPowers[i] = this.totalBasePowers[i] * this.RandomLevels[i];
     }
   }
 
