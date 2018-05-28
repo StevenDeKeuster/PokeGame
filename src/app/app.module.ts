@@ -11,6 +11,7 @@ import { DexComponent } from './dex/dex.component';
 import { CompetitorsComponent } from './competitors/competitors.component';
 
 import { PokeapiService } from './services/pokeapi.service';
+import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import { PokeapiService } from './services/pokeapi.service';
     HomeComponent,
     GameComponent,
     DexComponent,
-    CompetitorsComponent
+    CompetitorsComponent,
+    TimelineComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
       {path: "game", component: GameComponent},
+      {path: "timeline", component: TimelineComponent},
       {path: "home", component: HomeComponent},
       {path:"", redirectTo: "home", pathMatch:'full'}
     ], {useHash:true})
