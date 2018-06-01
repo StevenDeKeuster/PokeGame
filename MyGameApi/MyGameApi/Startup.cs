@@ -40,6 +40,11 @@ namespace MyGameApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(b =>
+            b.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
             app.UseMvc();
 
             DBInitializer.Initialize(libcontext);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameapiService, IGameRoot } from '../services/gameapi.service';
 
 @Component({
   selector: 'app-timeline',
@@ -7,12 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimelineComponent implements OnInit {
 
-  datum:Date;
+  games: IGameRoot[];
 
-  constructor() { }
+  constructor(private _service: GameapiService) { }
 
   ngOnInit() {
-    this.datum = new Date(1992, 0, 15);
+    this.getGames();
+  }
+
+
+
+
+  
+  getGames(){
+    this._service.getAllGamesInOrder().subscribe(result => {
+      this.games = result;
+   });
+  }
+
+  getGamesByGeneration(generation:string){
+    this._service.getAllGamesInOrder(generation).subscribe(result => {
+      this.games = result;
+   });
   }
 
 }

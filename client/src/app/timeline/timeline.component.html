@@ -1,4 +1,4 @@
-<div class="timeline is-centered">
+<div class="timeline is-centered" *ngIf="games">
   <header class="timeline-header">
     <span class="tag is-medium is-link">Jaartal 1ste game</span>
   </header>
@@ -6,29 +6,32 @@
 
 
 
-  <div class="timeline-item is-link">
+  <div class="timeline-item is-link" *ngFor="let game of games">
     <div class="timeline-marker is-image is-32x32">
       <img src="../assets/pokeball.png">
     </div>
     <div class="timeline-content">
       <p class="heading">{{datum | date}}</p>
 
-      <div class="card">
+
+
+     
+      <div class="card" >
         <div class="card-image">
           <figure class="image is-1by1">
-            <img src="https://romsmania.com/statics/assets/covers/gameboy-color/pokemon_yellow_cover_art_by_comunello76-d4xfrr5.jpg" alt="Game image">
+            <img src="{{game.boxImageUrl}}" alt="Game image">
           </figure>
         </div>
         <div class="card-content">
           <div class="media">
             <div class="media-left">
               <figure class="image is-60x60">
-                <img src="http://cdn.shopify.com/s/files/1/1751/0407/products/R2189992_02_800x.jpg?v=1510717820" alt="Console image">
+                <img src="{{game.myConsole.imageUrl}}" alt="Console image">
               </figure>
             </div>
             <div class="media-content">
-              <p class="title is-4">Diamond & Pearl</p>
-              <p class="subtitle is-6">Generation 1</p>
+              <p class="title is-4">{{game.title}}</p>
+              <p class="subtitle is-6">{{game.generation}}</p>
             </div>
           </div>
           
