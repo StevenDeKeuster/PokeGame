@@ -1,0 +1,11 @@
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\bin\Debug\netcoreapp2.0\MyGameApi.deps.json
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\bin\Debug\netcoreapp2.0\MyGameApi.runtimeconfig.json
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\bin\Debug\netcoreapp2.0\MyGameApi.runtimeconfig.dev.json
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\bin\Debug\netcoreapp2.0\MyGameApi.dll
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\bin\Debug\netcoreapp2.0\MyGameApi.pdb
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.csprojAssemblyReference.cache
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.csproj.CoreCompileInputs.cache
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.AssemblyInfoInputs.cache
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.AssemblyInfo.cs
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.dll
+C:\Users\Steven\Documents\AP\Cloud APIs\PokeGame\MyGameApi\MyGameApi\obj\Debug\netcoreapp2.0\MyGameApi.pdb
