@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,49 @@ namespace MyGameApi
         }
 
 
+
+
+
+
         //alle games in een list
         [HttpGet]           // api/v1/games
-        public List<Game> GetAllGames()
+        public List<Game> GetAllGames(string gen, string sort, int? page, int length = 20, string dir="asc")
         {
-            return context.Games.ToList();
+
+            IQueryable<Game> myQuery = context.Games;
+
+            //filteren
+            if (!string.IsNullOrWhiteSpace(gen))
+                myQuery = myQuery.Where(d => Convert.ToString(d.Generation) == gen);
+
+            //paging
+            if (page.HasValue)
+                myQuery = myQuery.Skip(page.Value * length);
+            myQuery = myQuery.Take(length);
+
+            //Sorteren
+            if (!string.IsNullOrWhiteSpace(sort))
+            {
+                switch (sort)
+                {
+                    case "title":
+                        if (dir == "asc")
+                            myQuery = myQuery.OrderBy(d => d.Title);
+                        else if (dir == "desc")
+                            myQuery = myQuery.OrderByDescending(d => d.Title);
+                        break;
+                    case "releasedate":
+                        if (dir == "asc")
+                            myQuery = myQuery.OrderBy(d => d.Releasedate);
+                        else if (dir == "desc")
+                            myQuery = myQuery.OrderByDescending(d => d.Releasedate);
+                        break;
+                }
+            }
+
+            return myQuery
+                .Include(d => d.MyConsole)
+                .ToList();
         }
 
 
@@ -30,7 +69,9 @@ namespace MyGameApi
         [HttpGet]
         public IActionResult GetGameById(int id)
         {
-            var showGame = context.Games.Find(id);
+            var showGame = context.Games
+                .Include(d => d.MyConsole) //bijbehorende console ook mee opvragen
+                .SingleOrDefault(d => d.Id == id);
             if (showGame == null) return NotFound();
             return Ok(showGame);
         }
@@ -39,12 +80,30 @@ namespace MyGameApi
         //een specifieke game opvragen (via name)
         [Route("{name}")]     // api/v1/games/red&blue
         [HttpGet]
-        public IActionResult GetGameByName(string name)
+        public IActionResult GetGameByName(string title)
         {
-            var showGame = context.Games.Find(name);
+            var showGame = context.Games
+                .Include(d => d.MyConsole) //bijbehorende console ook mee opvragen
+                .SingleOrDefault(d => d.Title == title);
             if (showGame == null) return NotFound();
             return Ok(showGame);
         }
+
+
+
+        //alle games opvragen van een bepaalde generatie
+        [HttpGet]       // api/v1/games?generation=1
+        public List<Game> GetGamesFromGeneration(string gen)
+        {
+            IQueryable<Game> myQuery = context.Games;
+
+            
+
+            return myQuery
+                .Include(d => d.MyConsole)
+                .ToList();
+        }
+
 
 
         //een nieuwe game aan de database toevoegen
