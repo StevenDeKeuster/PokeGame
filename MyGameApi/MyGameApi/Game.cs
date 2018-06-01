@@ -11,6 +11,7 @@ namespace MyGameApi
         public string Title { get; set; }
         public string Releasedate { get; set; }
         public GameConsole MyConsole { get; set; }
+        public int MyConsoleId { get; set; }
         public int Generation { get; set; }
         public string BoxImageUrl { get; set; }
     }

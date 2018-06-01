@@ -91,20 +91,6 @@ namespace MyGameApi
 
 
 
-        //alle games opvragen van een bepaalde generatie
-        [HttpGet]       // api/v1/games?generation=1
-        public List<Game> GetGamesFromGeneration(string gen)
-        {
-            IQueryable<Game> myQuery = context.Games;
-
-            
-
-            return myQuery
-                .Include(d => d.MyConsole)
-                .ToList();
-        }
-
-
 
         //een nieuwe game aan de database toevoegen
         [HttpPost]

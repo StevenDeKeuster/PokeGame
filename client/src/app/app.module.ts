@@ -11,6 +11,7 @@ import { DexComponent } from './dex/dex.component';
 import { CompetitorsComponent } from './competitors/competitors.component';
 
 import { PokeapiService } from './services/pokeapi.service';
+import { GameapiService } from './services/gameapi.service';
 import { TimelineComponent } from './timeline/timeline.component';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { TimelineComponent } from './timeline/timeline.component';
 
   ],
   providers: [
-    PokeapiService
+    PokeapiService,
+    GameapiService
   ],
   bootstrap: [AppComponent]
 })
