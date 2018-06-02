@@ -1,6 +1,41 @@
+<div class="tabs is-centered">
+  <ul>
+    <li class="{{tabsclasses[0]}}" (click)="getGames()"><a>All Generations</a></li>
+    <li class="{{tabsclasses[1]}}" (click)="getGamesByGeneration('1')"><a>Generation 1</a></li>
+    <li class="{{tabsclasses[2]}}" (click)="getGamesByGeneration('2')"><a>Generation 2</a></li>
+    <li class="{{tabsclasses[3]}}" (click)="getGamesByGeneration('3')"><a>Generation 3</a></li>
+    <li class="{{tabsclasses[4]}}" (click)="getGamesByGeneration('4')"><a>Generation 4</a></li>
+    <li class="{{tabsclasses[5]}}" (click)="getGamesByGeneration('5')"><a>Generation 5</a></li>
+    <li class="{{tabsclasses[6]}}" (click)="getGamesByGeneration('6')"><a>Generation 6</a></li>
+    <li class="{{tabsclasses[7]}}" (click)="getGamesByGeneration('7')"><a>Generation 7</a></li>
+  </ul>
+</div>
+
+
+
+
+<div class=selectcontainer>
+  <div class="select is-link">
+    <select>
+      <option (click)="getGames()">All Generations</option>
+      <option (click)="getGamesByGeneration('1')">Generation 1</option>
+      <option (click)="getGamesByGeneration('2')">Generation 2</option>
+      <option (click)="getGamesByGeneration('3')">Generation 3</option>
+      <option (click)="getGamesByGeneration('4')">Generation 4</option>
+      <option (click)="getGamesByGeneration('5')">Generation 5</option>
+      <option (click)="getGamesByGeneration('6')">Generation 6</option>
+      <option (click)="getGamesByGeneration('7')">Generation 7</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+
 <div class="timeline is-centered" *ngIf="games">
   <header class="timeline-header">
-    <span class="tag is-medium is-link">Jaartal 1ste game</span>
+    <span class="tag is-medium is-link">{{getDate(games[0].releasedate) | date:'yyyy'}}</span>
   </header>
 
 
@@ -11,12 +46,12 @@
       <img src="../assets/pokeball.png">
     </div>
     <div class="timeline-content">
-      <p class="heading">{{datum | date}}</p>
+      <p class="heading">{{getDate(game.releasedate) | date}}</p>
 
 
 
-     
-      <div class="card" >
+
+      <div class="card">
         <div class="card-image">
           <figure class="image is-1by1">
             <img src="{{game.boxImageUrl}}" alt="Game image">
@@ -31,10 +66,10 @@
             </div>
             <div class="media-content">
               <p class="title is-4">{{game.title}}</p>
-              <p class="subtitle is-6">{{game.generation}}</p>
+              <p class="subtitle is-6">Generation {{game.generation}}</p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>

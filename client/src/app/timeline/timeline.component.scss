@@ -1,13 +1,20 @@
- .timeline{
-     margin: auto;
-     width: 50%;
-     padding-top: 40pt;
-     padding-bottom: 60pt;
- }
+.timeline{
+    margin: auto;
+    width: 50%;
+    padding-top: 20pt;
+    padding-bottom: 60pt;
+}
+
+.selectcontainer{
+    margin: auto;
+    padding-top: 40pt;
+    width: 150pt;
+}
 
 .card{
     max-width: 200pt;
 }
+
 .media-left .image{
     width: 70pt;
 }

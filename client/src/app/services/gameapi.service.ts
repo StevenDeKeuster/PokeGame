@@ -8,12 +8,20 @@ import "rxjs/add/observable/of";
 export class GameapiService{
     constructor(private _http:HttpClient){}
 
-    getAllGamesInOrder(gen:string="", sort:string="releasedate",  dir:string="asc"):Observable<IGameRoot[]>{
+    GetAllGamesInOrder(gen:string="", sort:string="releasedate",  dir:string="asc"):Observable<IGameRoot[]>{
         return this._http.get<IGameRoot[]>("http://localhost:16283/api/v1/games?page=0&gen=" + gen + "&sort=" + sort + "&dir=" + dir + "/" );
     }
 
     PostGame(gameToPost:IGameRoot){
         return this._http.post<IGameRoot>("http://localhost:16283/api/v1/games", gameToPost);
+    }
+
+    GetAllGamesConsoles():Observable<IGameRoot[]>{
+        return this._http.get<IGameRoot[]>("http://localhost:16283/api/v1/consoles/");
+    }
+    
+    GetConsoleByName(name:string):Observable<IGameRoot>{
+        return this._http.get<IGameRoot>("http://localhost:16283/api/v1/consoles/" + name + "/");
     }
     
     
