@@ -18,9 +18,6 @@ export class TimelineComponent implements OnInit {
   }
 
 
-
-
-
   getGames() {
     this._service.GetAllGamesInOrder().subscribe(result => {
       this.games = result;

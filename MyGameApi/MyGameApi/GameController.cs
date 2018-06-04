@@ -63,7 +63,7 @@ namespace MyGameApi
                 .ToList();
         }
 
-
+        /*
         //een specifieke game opvragen (via id)
         [Route("{id}")]     // api/v1/games/1
         [HttpGet]
@@ -75,10 +75,10 @@ namespace MyGameApi
             if (showGame == null) return NotFound();
             return Ok(showGame);
         }
-
+        */
 
         //een specifieke game opvragen (via name)
-        [Route("{name}")]     // api/v1/games/red&blue
+        [Route("{title}")]     // api/v1/games/red&blue
         [HttpGet]
         public IActionResult GetGameByName(string title)
         {

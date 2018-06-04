@@ -12,16 +12,20 @@ export class GameapiService{
         return this._http.get<IGameRoot[]>("http://localhost:16283/api/v1/games?page=0&gen=" + gen + "&sort=" + sort + "&dir=" + dir + "/" );
     }
 
-    PostGame(gameToPost:IGameRoot){
+    GetGameByName(name:string):Observable<IGameRoot>{
+        return this._http.get<IGameRoot>("http://localhost:16283/api/v1/games/" + name + "/" );
+    }
+
+    PostGame(gameToPost:IGameRoot):Observable<IGameRoot>{
         return this._http.post<IGameRoot>("http://localhost:16283/api/v1/games", gameToPost);
     }
 
-    GetAllGamesConsoles():Observable<IGameRoot[]>{
-        return this._http.get<IGameRoot[]>("http://localhost:16283/api/v1/consoles/");
+    GetAllGamesConsoles():Observable<Iconsole[]>{
+        return this._http.get<Iconsole[]>("http://localhost:16283/api/v1/consoles/");
     }
     
-    GetConsoleByName(name:string):Observable<IGameRoot>{
-        return this._http.get<IGameRoot>("http://localhost:16283/api/v1/consoles/" + name + "/");
+    GetConsoleByName(name:string):Observable<Iconsole>{
+        return this._http.get<Iconsole>("http://localhost:16283/api/v1/consoles/" + name + "/");
     }
     
     
@@ -34,6 +38,7 @@ export interface IGameRoot {
     Title: string;
     Releasedate: string;
     MyConsole: Iconsole;
+    MyConsoleId:number;
     Generation: number;
     BoxImageUrl: string;
 }

@@ -1,0 +1,126 @@
+<div class="bodycont">
+
+
+  <div class="box">
+
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <input class="input is-link" type="text" [(ngModel)]="gameToMake.title">
+      </div>
+    </div>
+
+
+
+    <div class="columns">
+
+      <div class="column">
+        <div class="field">
+          <label class="label">Generation</label>
+          <div class="control">
+            <div class="select is-link">
+              <select [(ngModel)]="gameToMake.generation">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="field">
+          <label class="label">Console</label>
+          <div class="control">
+            <div class="select is-link">
+              <select [(ngModel)]="myConsoleName">
+                <option *ngFor="let item of consoles">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <label class="label">Releasedate</label>
+    <div class="columns">
+
+      <div class="column">
+        <div class="field">
+          <label class="label">Day</label>
+          <div class="control">
+            <input class="input is-link" type="number" [(ngModel)]="day">
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="field">
+          <label class="label">Month</label>
+          <div class="control">
+            <input class="input is-link" type="number" [(ngModel)]="month">
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="field">
+          <label class="label">Year</label>
+          <div class="control">
+            <input class="input is-link" type="number" [(ngModel)]="year">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="field">
+      <label class="label">Image URL</label>
+      <div class="control">
+        <input class="input is-link" type="text" [(ngModel)]="gameToMake.boxImageUrl">
+      </div>
+    </div>
+
+    <a class="button is-link is-outlined" (click)="generateNewGame()">Create!</a>
+
+  </div>
+
+
+
+
+
+  <div class="box" *ngIf="newGame">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <img src="{{newGame.boxImageUrl}}" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{newGame.title}}</strong>
+            <br>Releasdate: {{getDate(newGame.releasedate) | date}}
+            <br>Generation: {{newGame.generation}}
+          </p>
+        </div>
+      </div>
+      <div class="media-right">
+        <figure class="image is-64x64">
+          <img src="{{newGame.myConsole.imageUrl}}" alt="Image">
+        </figure>
+      </div>
+    </article>
+  </div>
+
+</div>

@@ -13,26 +13,6 @@
 
 
 
-
-<div class=selectcontainer>
-  <div class="select is-link">
-    <select>
-      <option (click)="getGames()">All Generations</option>
-      <option (click)="getGamesByGeneration('1')">Generation 1</option>
-      <option (click)="getGamesByGeneration('2')">Generation 2</option>
-      <option (click)="getGamesByGeneration('3')">Generation 3</option>
-      <option (click)="getGamesByGeneration('4')">Generation 4</option>
-      <option (click)="getGamesByGeneration('5')">Generation 5</option>
-      <option (click)="getGamesByGeneration('6')">Generation 6</option>
-      <option (click)="getGamesByGeneration('7')">Generation 7</option>
-    </select>
-  </div>
-</div>
-
-
-
-
-
 <div class="timeline is-centered" *ngIf="games">
   <header class="timeline-header">
     <span class="tag is-medium is-link">{{getDate(games[0].releasedate) | date:'yyyy'}}</span>

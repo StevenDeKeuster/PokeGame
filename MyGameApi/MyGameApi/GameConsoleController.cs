@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +27,14 @@ namespace MyGameApi
 
 
         //een specifieke console opvragen (via id)
-        [Route("{id}")]     // api/v1/consoles/1
+        /*[Route("{id}")]     // api/v1/consoles/1
         [HttpGet]
         public IActionResult GetGameConsoleById(int id)
         {
             var showGameConsole = context.GameConsoles.Find(id);
             if (showGameConsole == null) return NotFound();
             return Ok(showGameConsole);
-        }
+        }*/
 
 
         //een specifieke console opvragen (via name)
@@ -41,9 +42,10 @@ namespace MyGameApi
         [HttpGet]
         public IActionResult GetGameConsoleByName(string name)
         {
-            var showGameConsole = context.GameConsoles.Find(name);
-            if (showGameConsole == null) return NotFound();
-            return Ok(showGameConsole);
+            var ShowGameConsole = context.GameConsoles
+                .SingleOrDefault(d => d.Name == name);
+            if (ShowGameConsole == null) return NotFound();
+            return Ok(ShowGameConsole);
         }
 
 
